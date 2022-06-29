@@ -1,10 +1,9 @@
 @import "vars";
-@import "mixins";
+@import "mixin";
 html {
   font-size: 10px;
 }
 body {
-  overflow-y: hidden !important;
   font-size: 1.6rem;
   font-family: "Titillium Web", "Raleway", "Noto Sans KR", sans-serif;
   background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, 0, transparent 5%) #333;
@@ -85,6 +84,87 @@ img {
       height: 50px;
       padding: 0 20px;
       border-left: 1px solid #d9d9d9;
+    }
+  }
+}
+#main {
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .pagination {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
+    position: absolute;
+    bottom: 100px;
+    .swiper-pagination-bullet {
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+      background-color: transparent;
+      border: 2px solid #fff;
+      border-radius: 100px;
+      transition: all 0.25s ease;
+      &-active {
+        background-color: #fff;
+        //width: 100px;
+      }
+    }
+  }
+}
+#itemList {
+  height: auto;
+  li {
+    opacity: 0;
+    width: 900px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    padding: 80px;
+    box-sizing: border-box;
+    position: relative;
+    justify-content: flex-end;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    top: -300px;
+    .info {
+      width: 50%;
+      color: #fff;
+      .title {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+      }
+      .desc {
+        line-height: 1.5;
+        font-size: 18px;
+      }
+      a {
+        display: inline-block;
+        padding: 20px 50px;
+        background-color: #111;
+        @include longShadow(darken(#111, 10), 30);
+        overflow: hidden;
+        color: #fff;
+        border-radius: 100px;
+        margin-top: 50px;
+      }
+    }
+    .img {
+      position: absolute;
+      left: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      img {
+        max-width: 500px;
+        max-height: 600px;
+        object-fit: contain;
+      }
     }
   }
 }
