@@ -136,6 +136,13 @@ img {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
   top: -300px;
 }
+#itemList li.reverse {
+  flex-direction: row-reverse;
+}
+#itemList li.reverse .img {
+  left: auto;
+  right: -100px;
+}
 #itemList li .info {
   width: 50%;
   color: #fff;
@@ -165,6 +172,7 @@ img {
   left: -100px;
   top: 50%;
   transform: translateY(-50%);
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.2));
 }
 #itemList li .img img {
   max-width: 500px;

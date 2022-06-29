@@ -119,6 +119,13 @@ img {
 #itemList {
   height: auto;
   li {
+    &.reverse {
+      flex-direction: row-reverse;
+      .img {
+        left: auto;
+        right: -100px;
+      }
+    }
     opacity: 0;
     width: 900px;
     height: 500px;
@@ -160,6 +167,7 @@ img {
       left: -100px;
       top: 50%;
       transform: translateY(-50%);
+      filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.2));
       img {
         max-width: 500px;
         max-height: 600px;
