@@ -47,6 +47,7 @@
   <script>
     //prettier-ignore
     const itemList = $("#itemList");
+    let itemSlider = null;
 
     $("#gnb li").on("click", function () {
       if ($(this).hasClass("selected")) {
@@ -78,12 +79,17 @@
           });
           // 이미지 로딩이 끝난 다음 swiper 적용되게
           itemList.html(tempHtml);
-          //console.log(items.length);
           const total = items.length;
+          if (itemSlider !== null) {
+            itemSlider.destroy();
+          }
           itemList.imagesLoaded().always(function () {
-            new Swiper("#main", {
+            itemSlider = new Swiper("#main", {
               loop: true,
-              mousewheel: true,
+              //mousewheel: true,
+              mousewheel: {
+                thresholdDelta: 1,
+              },
               centeredSlides: true,
               slidesPerView: "auto",
               effect: "coverflow",
@@ -126,7 +132,6 @@
 
     // 재귀함수  지가 지를 호출하는 함수...  recursion
     function fatorial(num) {
-      console.log(num);
       if (num < 1) {
         return 1;
       }
